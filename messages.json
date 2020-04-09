@@ -1,0 +1,83 @@
+"Curl settings for our get started and first greeting"
+
+#Get Started
+    curl -X POST -H "Content-Type: application/json" -d '{
+        "get_started": {"payload": "GET_STARTED_SMILY"}
+    }' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAJCBP9ZBKKABAFusRc7EOPZBEZAZBo536ps2HbRkh8cpNLcNMRXOkIYv83NjLZBZARWbZBopcQjF36Q4ZCZCeVwdIlEJ8UTv31PaYZBO4ZBzH86dkKZBrZAp4qW6q42Fq8araaxqXl7mpqiNAaXwscbmOnAMWlfQHRNVfIOQBtc5UhnFlY03ZBkKgwVe47ejL0rC3nW0ZD"
+
+
+
+#Greeting
+  curl -X POST -H "Content-Type: application/json" -d '{
+    "greeting": [{
+      "locale": "default",
+      "text": "Hola {{user_first_name}} soy Smily y atiendo BellaSonrisa te invito a conocer nuestros servicios.!"
+    }, {
+      "locale": "en_US",
+      "text": "Hello {{user_first_name}} soy Smily y atiendo BellaSonrisa te invito a conocer nuestros servicios.!"
+    }]
+    }
+    ' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAJCBP9ZBKKABAFusRc7EOPZBEZAZBo536ps2HbRkh8cpNLcNMRXOkIYv83NjLZBZARWbZBopcQjF36Q4ZCZCeVwdIlEJ8UTv31PaYZBO4ZBzH86dkKZBrZAp4qW6q42Fq8araaxqXl7mpqiNAaXwscbmOnAMWlfQHRNVfIOQBtc5UhnFlY03ZBkKgwVe47ejL0rC3nW0ZD"
+
+
+
+#Persistent Menu
+    curl -X POST -H "Content-Type: application/json" -d '{
+        "persistent_menu": [{
+          "locale": "default",
+          "composer_input_disabled": false,
+          "call_to_actions": [{
+              "title": " Bella Sonrisa ",
+              "type": "nested",
+              "call_to_actions": [{
+                  "title": "Acerca",
+                  "type": "postback",
+                  "payload": "ABOUT_PAYLOAD"
+                },
+                {
+                  "title": "Sucursales",
+                  "type": "postback",
+                  "payload": "LOCATIONS_PAYLOAD"
+                },
+                {
+                  "title": "Ayuda",
+                  "type": "postback",
+                  "payload": "HELP_PAYLOAD"
+                },
+                {
+                  "title": "Contacto",
+                  "type": "postback",
+                  "payload": "CONTACT_PAYLOAD"
+                }
+              ]
+            },
+            {
+              "title": "Servicios",
+              "type": "nested",
+              "call_to_actions": [{
+                  "title": "Especialidades",
+                  "type": "postback",
+                  "payload": "ESPECIALIDADES_PAYLOAD"
+                },
+                {
+                  "title": "Sericios",
+                  "type": "postback",
+                  "payload": "SERVICIOS_PAYLOAD"
+                },
+                {
+                  "title": "Promociones",
+                  "type": "postback",
+                  "payload": "PROMOTIONS_PAYLOAD"
+                }
+              ]
+            },
+            {
+              "type": "web_url",
+              "title": "Pagina Web",
+              "url": "http://platzi.com/bots-messenger/",
+              "webview_height_ratio": "full"
+            }
+          ]
+        }]
+        }
+        ' "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=EAAJCBP9ZBKKABAFusRc7EOPZBEZAZBo536ps2HbRkh8cpNLcNMRXOkIYv83NjLZBZARWbZBopcQjF36Q4ZCZCeVwdIlEJ8UTv31PaYZBO4ZBzH86dkKZBrZAp4qW6q42Fq8araaxqXl7mpqiNAaXwscbmOnAMWlfQHRNVfIOQBtc5UhnFlY03ZBkKgwVe47ejL0rC3nW0ZD"
